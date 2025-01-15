@@ -14,10 +14,8 @@ require("dotenv").config();
  */
 const getConnection = async()=>{
   try {
-    console.log("cadena")
-    console.log(`mongodb://${process.env.USER_DB_MONGO}:${process.env.PASSWORD_DB_MONGO}@${process.env.HOST_DB_MONGO}:27017/${process.env.DATABASE_DB_MONGO}?authSource=admin`)
     const cliente = await MongoClient.connect(`mongodb://${process.env.USER_DB_MONGO}:${process.env.PASSWORD_DB_MONGO}@${process.env.HOST_DB_MONGO}:27017/${process.env.DATABASE_DB_MONGO}?authSource=admin`)
-    console.log("exito")
+    console.log("db conectada")
     return cliente.db("images")
   } catch (error) {
     console.log("Fallo en la coneccion")

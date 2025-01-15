@@ -1,10 +1,3 @@
-db.getSiblingDB('admin').createUser(
-    {
-        user: "root",
-        pwd: "root",
-        roles: ["root"]
-    })
-
 // Usuarios para autenticarse en la aplicación
 db.users.insertMany([
     {
