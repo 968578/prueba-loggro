@@ -8,4 +8,6 @@ RUN npm i -E
 
 COPY . .
 
+EXPOSE 5001
+
 CMD ["npm", "run", "serve"]

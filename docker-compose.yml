@@ -1,5 +1,5 @@
 services:
-  mongodb:
+  mongo1:
     image: mongo
     restart: always
     environment:
@@ -11,5 +11,16 @@ services:
     volumes:
             - ./db:/docker-entrypoint-initdb.d
             - mongo-data:/data/db
+  api:
+    build: ./api
+    environment:
+      HOST_DB_MONGO: mongo1
+    depends_on:
+      - mongo1
+    ports:
+      - "5001:5001"
+    env_file:
+      - ./api/.env
+
 volumes:
   mongo-data:
